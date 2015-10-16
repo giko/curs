@@ -1,0 +1,21 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+           elementFormDefault="qualified">
+    <xs:element name="Valuta">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Item" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="Name"/>
+                            <xs:element type="xs:string" name="EngName"/>
+                            <xs:element type="xs:int" name="Nominal"/>
+                            <xs:element type="xs:string" name="ParentCode"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="ID" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="name"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
