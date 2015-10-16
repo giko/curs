@@ -16,7 +16,7 @@ import java.util.Set;
  * Created by giko on 16.10.15.
  */
 @Component
-@Path("/rates")
+@Path("/api/rate")
 public class RatesEndpoint {
     @Autowired
     private Broker service;
@@ -26,6 +26,16 @@ public class RatesEndpoint {
     @Produces("application/json")
     public Set<Currency> getCurrencies() {
         return service.getCurrencies();
+    }
+
+
+    @GET
+    @Path("/{id}")
+    @Produces("application/json")
+    public List<Rate> getRate(@PathParam("id") @NotNull String id) {
+        Date dateParam = new Date();
+
+        return service.getRate(dateParam, dateParam, id);
     }
 
     @GET
